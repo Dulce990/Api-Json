@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Tienda de abarrotes </title>
+</head>
+
+<body>
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Abarrotes 🖤 BlackPink 🩷 </h1>
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#" data-icon="home">Inicio</a></li>
+                    <li><a href="#" data-icon="tag" class="ui-btn-active">Products</a></li>
+                    <li><a href="#" data-icon="user">Empleados</a></li>
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- /footer -->
+        <div data-role="content">
+            <form action="/api/products/<%= result.barcode %>" method="POST">
+                <input type="text" name="barcode" id="txt_barcode" placeholder="Codigo de barras"
+                    value="<%= result.barcode %>">
+
+                <input type="text" name="description" id="txt_description" placeholder="Descripción"
+                    value="<%= result.description %>">
+
+                <input type="text" name="brand" id="txt_brand" placeholder="Marca" value="<%= result.brand %>">
+
+                <input type="text" name="cost" id="txt_cost" placeholder="Precio de compra" value="<%= result.cost %>">
+
+                <input type="text" name="price" id="txt_price" placeholder="Precio de venta"
+                    value="<%= result.price %>">
+
+                <input type="number" name="stock" id="txt_stock" placeholder="Numero en existencia"
+                    value="<%= result.stock %>">
+
+                <input type="date" name="expiredDate" id="txt_expiredDate" value="<%= result.expiredDate %>">
+
+                <label for="status">Activo</label>
+                <select name="status" id="flip-2" data-role="slider">
+                    <option value="0" <%=result.status=0?"selected" : "" %>>No</option>
+                    <option value="1" <%=result.status=1?"selected" : "" %>>si</option>
+                </select>
+
+                <button type="submit" id="submit-6" class="ui-shadow ui-btn ui-corner-all ui-mini">Actualizar</button>
+
+            </form>
+        </div>
+        <div data-role="footer">
+            <h5>Developed by Esperanza</h5>
+        </div>
+    </div>
+</body>
+
+</html>
